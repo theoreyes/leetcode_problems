@@ -1,8 +1,13 @@
 # Theodore Reyes
+#
+# Explanation: Converts a string representation of a Roman numeral
+# to integer by summing each numeral based on its roman-to-int value.
+# In the case that the next character represents a larger value than
+# the current one, we subtract the current one instead of adding it.
 
 class Solution:
     def romanToInt(self, s: str) -> int:
-        romToInt = {
+        rom = {
             'I' : 1,
             'V' : 5,
             'X' : 10,
@@ -15,39 +20,9 @@ class Solution:
         length = len(s)
         i = 0
         while i < length:
-            ch = s[i]
-            if (i == (length - 1)):
-                result += romToInt[ch]
+            if i != (length - 1) and rom[s[i + 1]] > rom[s[i]]:
+                result -= rom[s[i]]
             else:
-                match ch:
-                    case 'I':
-                        if s[i + 1] == 'V':
-                            result += 4
-                            i += 1
-                        elif s[i + 1] == 'X':
-                            result += 9
-                            i += 1
-                        else:
-                            result += romToInt[ch]
-                    case 'X':
-                        if s[i + 1] == 'L':
-                            result += 40
-                            i += 1
-                        elif s[i + 1] == 'C':
-                            result += 90
-                            i += 1
-                        else:
-                            result += romToInt[ch]
-                    case 'C':
-                        if s[i + 1] == 'D':
-                            result += 400
-                            i += 1
-                        elif s[i + 1] == 'M':
-                            result += 900
-                            i += 1
-                        else:
-                            result += romToInt[ch]
-                    case _:
-                        result += romToInt[ch]
+                result += rom[s[i]]
             i += 1
         return result
