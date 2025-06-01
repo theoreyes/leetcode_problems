@@ -4,6 +4,15 @@
 # calculating their intersecting common factors and checking if substrings
 # of these lengths (starting from the largest) successfully divide both
 # strings
+#
+# Edit: After researching other solutions to this problem (after coming up
+# with the one here on my own), I learned that the problem can be solved
+# trivially using the insight that the strings A and B are divisible if
+# they concatenate to the same string commutatively. From this, the 
+# output string is simply the substring of either operand's first gcd
+# characters. It is a very clever solution and makes me wonder what
+# other problems I have solved that could be trivialized in a similar
+# manner. Here's to many more a-ha moments.
 
 class Solution:
     def gcdOfStrings(self, str1: str, str2: str) -> str:
