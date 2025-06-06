@@ -1,7 +1,7 @@
 # Theodore Reyes
 #
 # Explanation: This solution records the amounts of profit
-# that could potentially be dervied during each interval of
+# that could potentially be derived during each interval of
 # the stocks growth, and returns the largest value found
 # from these amounts as output
 
