@@ -29,7 +29,6 @@ class Solution:
             else:
                 freqArray[counts[key]].append(key)
 
-
         for lists in reversed(freqArray):
             if lists != None:
                 for item in lists:
