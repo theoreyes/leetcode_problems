@@ -9,7 +9,7 @@
 # By encoding both the number of strings as well as each
 # string's length (since Python stores this information
 # anyways, len() is used here, but is not necessary. If we implemented 
-# in a language that did not store this information, we could simply 
+# in a context where we did not have this information, we could simply 
 # have encode perform this task per string), we are able to efficiently
 # slice each string using pointer/index arithmetic on the encoded
 # string.
