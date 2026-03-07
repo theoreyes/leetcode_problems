@@ -1,41 +1,46 @@
-# Theo Reyes
+# Author: Theodore Reyes
+# Explanation: O(n) solution to the Valid Sudoku problem.
+# Involves one pass-through of the board, where we keep
+# track of numbers using sets for each row, column, and
+# 3x3 sub-grid.
 #
-# Explanation: Naive-approach solution to Valid Sudoku problem.
-# Simply checks each row, col, and 3x3 subgrid for invalid
-# patterns, and returns True at the end if none found.
+# Note: If we let n be the length of one side of the board,
+# we get the following time and space complexities:
+#   
 # Time: O(n^2)
-# Space: O(n)
+# Space: O(n^2)      
 
-class Solution(object):
-    def isValidSudoku(self, board):
-        numSeen = set()
+class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
 
-        # Check rows
-        for row in board:
-            numSeen.clear()
-            for item in row:
-                if item != ".":
-                    if item in numSeen: 
-                        return False
-                    numSeen.add(item)
+        cols = list()
+        rows = list()
+        grids = list()
 
-        # Check columns
-        for i in range(len(board)):
-            numSeen.clear()
-            for j in range(len(board)):
-                if board[j][i] != ".":
-                    if board[j][i] in numSeen:
-                        return False
-                    numSeen.add(board[j][i])
+        # Create sets for holding sudoku cols/rows/grids
+        for i in range(9):
+            cols.insert(i, set())
+            rows.insert(i, set())
+            grids.insert(i, set())
+        
+        for j in range(9):
+            for i in range(9):
+                
+                # Ignores empty cells
+                if (board[i][j] == "."): continue
 
-        # Check 3x3 sub-grids
-        for igrid in range(3):
-            for jgrid in range(3):
-                numSeen.clear()
-                for i in range(igrid*3, igrid*3 + 3):
-                    for j in range(jgrid*3, jgrid*3 + 3):
-                        if board[i][j] != ".":
-                            if board[i][j] in numSeen:
-                                return False
-                            numSeen.add(board[i][j])
-        return True
+                # Check/add to cols
+                if board[i][j] in cols[i]: return False
+                cols[i].add(board[i][j])
+                
+                # Add to row
+                if board[i][j] in rows[j]: return False
+                rows[j].add(board[i][j])
+
+                # Add to grids
+                if board[i][j] in grids[(i // 3) + (3 * (j // 3))]: return False
+                grids[(i // 3) + (3 * (j // 3))].add(board[i][j])
+
+        # If loop completed, board is valid
+        return True;
+
