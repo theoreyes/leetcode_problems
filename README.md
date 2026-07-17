@@ -9,5 +9,5 @@ to small coding-challenge problems in, especially those involving
 things like hash functions.
 
 This repo is more so for personal storage but if you have stumbled 
-upon this and have and feel I would benefit from feedback, I
+upon this and  feel I would benefit from feedback, I
 am always happy to hear your thoughts via email or DM.
