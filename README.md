@@ -8,6 +8,6 @@ Python is used as a default as it is quick to implement solutions
 to small coding-challenge problems in, especially those involving
 things like hash functions.
 
-This repo is moreso for personal storage but if you have stumbled 
+This repo is more so for personal storage but if you have stumbled 
 upon this and have and feel I would benefit from feedback, I
 am always happy to hear your thoughts via email or DM.
